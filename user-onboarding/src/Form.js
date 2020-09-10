@@ -68,6 +68,13 @@ const Form = () => {
                 })
 
         .catch(err => console.log(err))
+
+        setFormData({
+            name: "",
+            email: "",
+            password: "",
+            terms: ""
+        });
     };
 
     console.log('users:', users)
