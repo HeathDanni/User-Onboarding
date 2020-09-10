@@ -63,7 +63,7 @@ const Form = () => {
                 {console.log(res)
                 setUsers([
                     ...users,
-                     res.data.name
+                      res.data.name
                 ])
                 })
 
@@ -121,7 +121,9 @@ const Form = () => {
             <input type='submit'></input>
 
         </form>
-                <p>{users}</p>
+
+            {JSON.stringify(users)}
+
         </div>
     )
 }
