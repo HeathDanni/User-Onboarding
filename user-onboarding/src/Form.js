@@ -63,9 +63,7 @@ const Form = () => {
                 {console.log(res)
                 setUsers([
                     ...users,
-                     {
-                        name: [res.data.name],
-                        email: [res.data.email]}
+                     res.data.name
                 ])
                 })
 
@@ -123,7 +121,7 @@ const Form = () => {
             <input type='submit'></input>
 
         </form>
-
+                <p>{users}</p>
         </div>
     )
 }
