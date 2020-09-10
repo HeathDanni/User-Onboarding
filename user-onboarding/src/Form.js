@@ -52,14 +52,29 @@ const Form = () => {
         });
     };
 
+    const [users, setUsers] = useState([]);
+
     const submitForm = (e) => {
         e.preventDefault();
 
         axios
             .post('https://reqres.in/api/users', formData)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
+            .then(res => 
+                {console.log(res)
+                setUsers([
+                    ...users,
+                     {
+                        name: [res.data.name],
+                        email: [res.data.email]}
+                ])
+                })
+
+        .catch(err => console.log(err))
     };
+
+    console.log('users:', users)
+
+
 
     return (
         <div>
@@ -109,7 +124,6 @@ const Form = () => {
 
         </form>
 
-        <p>I hope this works: {formData.name}{formData.email}{formData.password}</p>
         </div>
     )
 }
