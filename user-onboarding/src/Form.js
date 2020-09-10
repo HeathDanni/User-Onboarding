@@ -63,8 +63,9 @@ const Form = () => {
                 {console.log(res)
                 setUsers([
                     ...users,
-                      res.data.name
-                ])
+                      {name: [res.data.name],
+                      email: [res.data.email]
+                      }])
                 })
 
         .catch(err => console.log(err))
@@ -78,7 +79,6 @@ const Form = () => {
     };
 
     console.log('users:', users)
-
 
 
     return (
@@ -128,8 +128,21 @@ const Form = () => {
             <input type='submit'></input>
 
         </form>
+        <div>
 
-            {JSON.stringify(users)}
+            {users.map((el) => {
+                return (
+                    <div>
+                        <span>{el.name}</span><br></br>
+                        <span>{el.email}</span><br></br>
+                        <br></br>
+                
+                    </div>
+                )
+            })}
+        </div>
+
+            {/* {JSON.stringify(users)} */}
 
         </div>
     )
