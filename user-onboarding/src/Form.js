@@ -54,12 +54,11 @@ const Form = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        // axios
-        //     .post('https://reqres.in/api/users', [e.target.value]);
-        // setFormData({name: "",
-        // email: "",
-        // password: "",
-        // checked: ''})
+
+        axios
+            .post('https://reqres.in/api/users', formData)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
     };
 
     return (
