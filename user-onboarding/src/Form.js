@@ -8,6 +8,13 @@ const Error = styled.p`
   font-size: 20px;
 `
 
+const Submit = styled.input`
+    width: 125px;
+    height: 35px;
+    font-size: 25px;
+    background-color: orange;
+`
+
 const formSchema = yup.object().shape({
     name: yup.string().required('name required'),
     email: yup.string().email('Must be a valid email'),
@@ -118,7 +125,7 @@ const Form = () => {
                     value={formData.password}>
                 </input><br></br>
 
-                {errors.password.length > 0 ? <p>{errors.password}</p> : null}
+                {errors.password.length > 0 ? <Error>{errors.password}</Error> : null}
 
             <label>Terms of Service</label><br></br>
                 <input 
@@ -129,9 +136,9 @@ const Form = () => {
                     checked={formData.terms}>
                 </input><br></br>
 
-                {errors.terms.length > 0 ? <p>{errors.terms}</p> : null}
+                {errors.terms.length > 0 ? <Error>{errors.terms}</Error> : null}
 
-            <input type='submit'></input>
+            <Submit type='submit' class='submit'></Submit>
 
         </form>
         <div>
