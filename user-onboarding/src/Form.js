@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as yup from 'yup';
+import styled from 'styled-components'
+
+const Error = styled.p`
+  color: red;
+  font-size: 20px;
+`
 
 const formSchema = yup.object().shape({
     name: yup.string().required('name required'),
@@ -86,7 +92,7 @@ const Form = () => {
 
         <form onSubmit={submitForm}>
 
-            <label htmlFor='name'>Name</label>
+            <label htmlFor='name'>Name</label><br></br>
                 <input name='name' 
                 id='name' 
                 onChange={changeHandler}
@@ -94,18 +100,18 @@ const Form = () => {
                 </input>
                 <br></br>
 
-        {errors.name.length > 0 ? <p>{errors.name}</p> : null}
+        {errors.name.length > 0 ? <Error>{errors.name}</Error> : null}
 
-            <label htmlFor='email'>Email</label>
+            <label htmlFor='email'>Email</label><br></br>
                 <input name='email' 
                     id='email' 
                     onChange={changeHandler}
                     value={formData.email}>
                 </input><br></br>
 
-            {errors.email.length > 0 ? <p>{errors.email}</p> : null}
+            {errors.email.length > 0 ? <Error>{errors.email}</Error> : null}
 
-            <label htmlFor='password'>Password</label>
+            <label htmlFor='password'>Password</label><br></br>
                 <input name='password' 
                     id='password'
                     onChange={changeHandler}
@@ -114,7 +120,7 @@ const Form = () => {
 
                 {errors.password.length > 0 ? <p>{errors.password}</p> : null}
 
-            <label>Terms of Service</label>
+            <label>Terms of Service</label><br></br>
                 <input 
                     type='checkbox' 
                     name='terms' 
